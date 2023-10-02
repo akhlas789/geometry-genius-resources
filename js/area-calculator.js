@@ -38,3 +38,36 @@
     widthFild.value = ''
     lengthFild.value = ''
  }
+
+//  reausable function 
+
+function getInputValue(fildId) {
+    const inputFild = document.getElementById(fildId)
+    const inputValueText = inputFild.value
+    const value = parseFloat(inputValueText)
+    inputFild.value = ''
+    return value
+}
+
+// reuseable set span ,p,div,etc
+
+function setElementInnerText(elementId, area) {
+    const element = document.getElementById(elementId)
+    element.innerText = area;
+}
+
+function calculateParallelogramArea() {
+    const parallelogramBase = getInputValue('parallelogram-base')
+    const parallelogramHeight = getInputValue('parallelogram-height')
+    const parallelogramCalulate = parallelogramBase * parallelogramHeight
+    setElementInnerText('parallelogram-area',parallelogramCalulate)
+}
+
+function calculateEllipseArea() {
+    const majorRedus = getInputValue('ellipse-mejor-redus')
+    const minorRedus = getInputValue('ellipse-minor-redus')
+    const area = (Math.PI * majorRedus * minorRedus).toFixed(2);
+    setElementInnerText('ellipse-redus',area)
+}
+
+
