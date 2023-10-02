@@ -47,6 +47,7 @@ function getInputValue(fildId) {
     const value = parseFloat(inputValueText)
     inputFild.value = ''
     return value
+    
 }
 
 // reuseable set span ,p,div,etc
@@ -59,6 +60,10 @@ function setElementInnerText(elementId, area) {
 function calculateParallelogramArea() {
     const parallelogramBase = getInputValue('parallelogram-base')
     const parallelogramHeight = getInputValue('parallelogram-height')
+    if(isNaN(parallelogramBase) || isNaN(parallelogramHeight)){
+        alert('please type number')
+        return
+    }
     const parallelogramCalulate = parallelogramBase * parallelogramHeight
     setElementInnerText('parallelogram-area',parallelogramCalulate)
 }
@@ -66,6 +71,10 @@ function calculateParallelogramArea() {
 function calculateEllipseArea() {
     const majorRedus = getInputValue('ellipse-mejor-redus')
     const minorRedus = getInputValue('ellipse-minor-redus')
+    if(isNaN(majorRedus) || isNaN(minorRedus)){
+        alert('please type a number')
+        return
+    }
     const area = (Math.PI * majorRedus * minorRedus).toFixed(2);
     setElementInnerText('ellipse-redus',area)
 }
